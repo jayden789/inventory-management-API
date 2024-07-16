@@ -6,7 +6,7 @@ class IsAdminOrJWTAuthenticated(permissions.BasePermission):
     while regular users must be JWT authenticated and can only perform read operations.
     """
 
-    def has_permission(self, request, view):
+    def has_permission(self, request):
         # Admin users can perform any operations without JWT
         if request.user and request.user.is_staff:
             return True
